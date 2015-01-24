@@ -22,8 +22,11 @@ function addResource(tinyInstance)
 	{
 
 	$resource_name = document.getElementById("add-resource-name").value;
-	$resource_description = document.getElementById("add-resource-description").value;
+	$resource_summary = document.getElementById("add-resource-summary").value;
+	$resource_abstract = document.getElementById("add-resource-abstract").value;
 	$resource_url = document.getElementById("add-resource-url").value;
+	$resource_owner = document.getElementById("add-resource-owner").value;
+	$resource_number = document.getElementById("add-resource-number").value;
 	$resource_tags = document.getElementById("add-resource-tags").value;
 
 	$postData = {};
@@ -32,13 +35,16 @@ function addResource(tinyInstance)
 	$postData['appkey'] = $APIConfig['3Scale']['appkey'];
 
 	$postData['name'] = $resource_name;
-	$postData['description'] = $resource_description;
+	$postData['summary'] = $resource_summary;
+	$postData['abstract'] = $resource_abstract;
 	$postData['url'] = $resource_url;
+	$postData['owner'] = $resource_owner;
+	$postData['number'] = $resource_number;
 	$postData['tags'] = $resource_tags;
 
-	$hosturl = 'http://blog.api.kinlane.com';
+	$hosturl = 'http://patent.api.kinlane.com';
 	$baseurl = '/';
-	$resource = 'blog/';
+	$resource = 'patent';
 
 	$apiurl = $hosturl + $baseurl + $resource;
 
@@ -54,12 +60,15 @@ function addResource(tinyInstance)
 			$.each(data, function(resourceKey, resourceValue) {
 
 				$resource_name = resourceValue['name'];
-				$resource_description = resourceValue['description'];
+				$resource_summary = resourceValue['summary'];
+				$resource_abstract = resourceValue['abstract'];
 				$resource_url = resourceValue['url'];
+				$resource_owner = resourceValue['owner'];
+				$resource_number = resourceValue['number'];
 				$resource_tags = resourceValue['tags'];
 				$resource_slug = resourceValue['slug'];
 
-				$html = getResourceListing($resource_name,$resource_description,$resource_url,$resource_tags,$resource_slug,$resourcecount);
+				$html = getResourceListing($resource_name,$resource_summary,$resource_abstract,$resource_url,$resource_owner,$resource_number,$resource_tags,$resource_slug,$resourcecount);
 				$('#jsonResourceEditorTable').append($html);
 
 				$resourcecount++;
@@ -76,7 +85,7 @@ function getAddResource()
 
 	html = '<tr id="add-resource-post" style="display: none;"><td align="center" style="font-size: 12px; background-color:#CCC; padding:5px;">';
 
-	html = html + '<span style="font-size: 18px;"><strong>Add blog</span></strong>';
+	html = html + '<span style="font-size: 18px;"><strong>Add patent</span></strong>';
 	html = html + '<table border="0" width="90%" cellpadding="3" cellspacing="2" id="resource-post-table">';
 
 	html = html + '<tr>';
@@ -85,13 +94,28 @@ function getAddResource()
 	html = html + '</tr>';
 
 	html = html + '<tr>';
-	html = html + '<td align="right" width="5%"><strong>description:</strong></td>';
-	html = html + '<td align="left"><input type="text" id="add-resource-description" value="" style="width:95%;" /></td>';
+	html = html + '<td align="right" width="5%"><strong>summary:</strong></td>';
+	html = html + '<td align="left"><input type="text" id="add-resource-summary" value="" style="width:95%;" /></td>';
+	html = html + '</tr>';
+
+	html = html + '<tr>';
+	html = html + '<td align="right" width="5%"><strong>abstract:</strong></td>';
+	html = html + '<td align="left"><input type="text" id="add-resource-abstract" value="" style="width:95%;" /></td>';
 	html = html + '</tr>';
 
 	html = html + '<tr>';
 	html = html + '<td align="right" width="5%"><strong>url:</strong></td>';
 	html = html + '<td align="left"><input type="text" id="add-resource-url" value="" style="width:95%;" /></td>';
+	html = html + '</tr>';
+
+	html = html + '<tr>';
+	html = html + '<td align="right" width="5%"><strong>owner:</strong></td>';
+	html = html + '<td align="left"><input type="text" id="add-resource-owner" value="" style="width:95%;" /></td>';
+	html = html + '</tr>';
+
+	html = html + '<tr>';
+	html = html + '<td align="right" width="5%"><strong>number:</strong></td>';
+	html = html + '<td align="left"><input type="text" id="add-resource-number" value="" style="width:95%;" /></td>';
 	html = html + '</tr>';
 
 	html = html + '<tr>';
@@ -127,9 +151,9 @@ function deleteResource($resourcecount)
 	$resource_slug = document.getElementById("edit-resource-slug-" + $resourcecount).value;
 
 
-	$hosturl = 'http://blog.api.kinlane.com';
+	$hosturl = 'http://patent.api.kinlane.com';
 	$baseurl = '/';
-	$resource = 'blog/';
+	$resource = 'patent/';
 
 	$query = '?appid=' + $APIConfig['3Scale']['appid'];
 	$query = $query + '&appkey=' + $APIConfig['3Scale']['appkey'];
@@ -153,26 +177,32 @@ function deleteResource($resourcecount)
 	function editResource($resourcecount)
 		{
 
-		$resource_slug = document.getElementById("edit-resource-slug-" + $resourcecount).value;
 		$resource_name = document.getElementById("edit-resource-name-" + $resourcecount).value;
-		$resource_description = document.getElementById("edit-resource-description-" + $resourcecount).value;
+		$resource_summary = document.getElementById("edit-resource-summary-" + $resourcecount).value;
+		$resource_abstract = document.getElementById("edit-resource-abstract-" + $resourcecount).value;
 		$resource_url = document.getElementById("edit-resource-url-" + $resourcecount).value;
+		$resource_owner = document.getElementById("edit-resource-owner-" + $resourcecount).value;
+		$resource_number = document.getElementById("edit-resource-number-" + $resourcecount).value;
 		$resource_tags = document.getElementById("edit-resource-tags-" + $resourcecount).value;
+		$resource_slug = document.getElementById("edit-resource-slug-" + $resourcecount).value;
 
 		$postData = {};
 
 		$postData['appid'] = $APIConfig['3Scale']['appid'];
 		$postData['appkey'] = $APIConfig['3Scale']['appkey'];
 
-		$postData['slug'] = $resource_slug;
 		$postData['name'] = $resource_name;
-		$postData['description'] = $resource_description;
+		$postData['summary'] = $resource_summary;
+		$postData['abstract'] = $resource_abstract;
 		$postData['url'] = $resource_url;
+		$postData['owner'] = $resource_owner;
+		$postData['number'] = $resource_number;
 		$postData['tags'] = $resource_tags;
+		$postData['slug'] = $resource_slug;
 
-		$hosturl = 'http://blog.api.kinlane.com';
+		$hosturl = 'http://patent.api.kinlane.com';
 		$baseurl = '/';
-		$resource = 'blog/';
+		$resource = 'patent/';
 
 		$apiurl = $hosturl + $baseurl + $resource + $resource_slug;
 
@@ -189,8 +219,11 @@ function deleteResource($resourcecount)
 				$.each(data, function(resourceKey, resourceValue) {
 
 					$resource_name = resourceValue['name'];
-					$resource_description = resourceValue['description'];
+					$resource_summary = resourceValue['summary'];
+					$resource_abstract = resourceValue['abstract'];
 					$resource_url = resourceValue['url'];
+					$resource_owner = resourceValue['owner'];
+					$resource_number = resourceValue['number'];
 					$resource_tags = resourceValue['tags'];
 					$resource_slug = resourceValue['slug'];
 
@@ -201,7 +234,7 @@ function deleteResource($resourcecount)
 
 		}
 
-function getEditResource($resource_name,$resource_description,$resource_url,$resource_tags,$resource_slug,$resourcecount)
+function getEditResource($resource_name,$resource_summary,$resource_abstract,$resource_url,$resource_owner,$resource_number,$resource_tags,$resource_slug,$resourcecount)
 		{
 
 	html = '<tr id="edit-resource-post-' + $resourcecount + '" style="display: none;"><td align="center" style="font-size: 12px; background-color:#CCC; padding:5px;">';
@@ -210,18 +243,18 @@ function getEditResource($resource_name,$resource_description,$resource_url,$res
 	html = html + '<table border="0" width="90%" cellpadding="3" cellspacing="2" id="resource-post-table">';
 
 	html = html + '<tr>';
-	html = html + '<td align="right" width="5%"><strong>slug:</strong></td>';
-	html = html + '<td align="left"><input type="text" id="edit-resource-slug-' + $resourcecount + '" value="' + $resource_slug + '" style="width:95%;" /></td>';
-	html = html + '</tr>';
-
-	html = html + '<tr>';
 	html = html + '<td align="right" width="5%"><strong>name:</strong></td>';
 	html = html + '<td align="left"><input type="text" id="edit-resource-name-' + $resourcecount + '" value="' + $resource_name + '" style="width:95%;" /></td>';
 	html = html + '</tr>';
 
 	html = html + '<tr>';
-	html = html + '<td align="right" width="5%"><strong>description:</strong></td>';
-	html = html + '<td align="left"><input type="text" id="edit-resource-description-' + $resourcecount + '" value="' + $resource_description + '" style="width:95%;" /></td>';
+	html = html + '<td align="right" width="5%"><strong>summary:</strong></td>';
+	html = html + '<td align="left"><input type="text" id="edit-resource-summary-' + $resourcecount + '" value="' + $resource_summary + '" style="width:95%;" /></td>';
+	html = html + '</tr>';
+
+	html = html + '<tr>';
+	html = html + '<td align="right" width="5%"><strong>abstract:</strong></td>';
+	html = html + '<td align="left"><input type="text" id="edit-resource-abstract-' + $resourcecount + '" value="' + $resource_abstract + '" style="width:95%;" /></td>';
 	html = html + '</tr>';
 
 	html = html + '<tr>';
@@ -230,8 +263,23 @@ function getEditResource($resource_name,$resource_description,$resource_url,$res
 	html = html + '</tr>';
 
 	html = html + '<tr>';
+	html = html + '<td align="right" width="5%"><strong>owner:</strong></td>';
+	html = html + '<td align="left"><input type="text" id="edit-resource-owner-' + $resourcecount + '" value="' + $resource_owner + '" style="width:95%;" /></td>';
+	html = html + '</tr>';
+
+	html = html + '<tr>';
+	html = html + '<td align="right" width="5%"><strong>number:</strong></td>';
+	html = html + '<td align="left"><input type="text" id="edit-resource-number-' + $resourcecount + '" value="' + $resource_number + '" style="width:95%;" /></td>';
+	html = html + '</tr>';
+
+	html = html + '<tr>';
 	html = html + '<td align="right" width="5%"><strong>tags:</strong></td>';
 	html = html + '<td align="left"><input type="text" id="edit-resource-tags-' + $resourcecount + '" value="' + $resource_tags + '" style="width:95%;" /></td>';
+	html = html + '</tr>';
+
+	html = html + '<tr>';
+	html = html + '<td align="right" width="5%"><strong>slug:</strong></td>';
+	html = html + '<td align="left"><input type="text" id="edit-resource-slug-' + $resourcecount + '" value="' + $resource_slug + '" style="width:95%;" /></td>';
 	html = html + '</tr>';
 
 	html = html + '<tr>';
@@ -246,7 +294,7 @@ function getEditResource($resource_name,$resource_description,$resource_url,$res
 
 	}
 
-function getResourceListing($slug,$name,$description,$url,$tags,$resourcecount)
+function getResourceListing($name,$summary,$abstract,$url,$owner,$number,$tags,$slug,$resourcecount)
 	{
 
 	html = '<tr id="resource-post-' + $resourcecount + '">';
@@ -260,11 +308,23 @@ function getResourceListing($slug,$name,$description,$url,$tags,$resourcecount)
 	html = html + '</span>';
 
 	html = html + '<span style="font-size:20px;">';
-	html = html + '<strong>' + $resource_description + '</strong>';
+	html = html + '<strong>' + $resource_summary + '</strong>';
+	html = html + '</span>';
+
+	html = html + '<span style="font-size:20px;">';
+	html = html + '<strong>' + $resource_abstract + '</strong>';
 	html = html + '</span>';
 
 	html = html + '<span style="font-size:20px;">';
 	html = html + '<strong>' + $resource_url + '</strong>';
+	html = html + '</span>';
+
+	html = html + '<span style="font-size:20px;">';
+	html = html + '<strong>' + $resource_owner + '</strong>';
+	html = html + '</span>';
+
+	html = html + '<span style="font-size:20px;">';
+	html = html + '<strong>' + $resource_number + '</strong>';
 	html = html + '</span>';
 
 	html = html + '<span style="font-size:20px;">';
@@ -292,9 +352,9 @@ function loadResourceEditor()
 	$textEditors = "add-resource-post";
 
 
-	$hosturl = 'http://blog.api.kinlane.com';
+	$hosturl = 'http://patent.api.kinlane.com';
 	$baseurl = '/';
-	$resource = 'blog/';
+	$resource = 'patent/';
 
 	$query = '?appid=' + $APIConfig['3Scale']['appid'];
 	$query = $query + '&appkey=' + $APIConfig['3Scale']['appkey'];
@@ -311,12 +371,15 @@ function loadResourceEditor()
 			$.each(data, function(resourceKey, resourceValue) {
 
 				$resource_name = resourceValue['name'];
-				$resource_description = resourceValue['description'];
+				$resource_summary = resourceValue['summary'];
+				$resource_abstract = resourceValue['abstract'];
 				$resource_url = resourceValue['url'];
+				$resource_owner = resourceValue['owner'];
+				$resource_number = resourceValue['number'];
 				$resource_tags = resourceValue['tags'];
 				$resource_slug = resourceValue['slug'];
 
-				$html = getResourceListing($resource_name,$resource_description,$resource_url,$resource_tags,$resource_slug,$resourcecount);
+				$html = getResourceListing($resource_name,$resource_summary,$resource_abstract,$resource_url,$resource_owner,$resource_number,$resource_tags,$resource_slug,$resourcecount);
 				$('#jsonResourceEditorTable').append($html); 
 
 				$html = getEditResource($resource_name,$resource_description,$resource_url,$resource_tags,$resource_slug,$resourcecount)
