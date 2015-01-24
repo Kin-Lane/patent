@@ -307,7 +307,8 @@
       "properties": {
         "code": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "description": "This is the error code returned."
         },
         "message": {
           "type": "string"
