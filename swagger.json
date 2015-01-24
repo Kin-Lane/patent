@@ -63,7 +63,7 @@
             "description": "abstracrt for the patent",
             "required": true,
             "type": "string"
-          },          
+          },
           {
             "name": "abstract",
             "in": "query",
@@ -84,14 +84,14 @@
             "description": "url for the patent",
             "required": true,
             "type": "string"
-          },   
+          },
           {
             "name": "number",
             "in": "query",
             "description": "number for the patent",
             "required": true,
             "type": "string"
-          },                  
+          },
           {
             "name": "tags",
             "in": "query",
@@ -166,7 +166,7 @@
             "description": "abstracrt for the patent",
             "required": true,
             "type": "string"
-          },          
+          },
           {
             "name": "abstract",
             "in": "query",
@@ -187,14 +187,14 @@
             "description": "url for the patent",
             "required": true,
             "type": "string"
-          },   
+          },
           {
             "name": "number",
             "in": "query",
             "description": "number for the patent",
             "required": true,
             "type": "string"
-          },                   
+          },
           {
             "name": "tags",
             "in": "query",
@@ -208,7 +208,7 @@
             "description": "unique slug for the patent",
             "required": true,
             "type": "string"
-          },          
+          }
         ],
         "responses": {
           "200": {
@@ -274,7 +274,7 @@
           "description": "abstract of the patent",
           "type": "string",
           "format": "text"
-        },        
+        },
         "url": {
           "description": "url for the patent",
           "type": "string",
@@ -283,11 +283,11 @@
         "owner": {
           "description": "owner for the patent",
           "type": "string"
-        },    
+        },
         "number": {
           "description": "number for the patent",
           "type": "string"
-        },             
+        },
         "tags": {
           "description": "tags for the patent",
           "type": "string"
@@ -298,7 +298,7 @@
           "format": "id"
         }
       }
-    },    
+    },
     "errorModel": {
       "required": [
         "code",
