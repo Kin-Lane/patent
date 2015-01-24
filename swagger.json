@@ -58,9 +58,16 @@
             "type": "string"
           },
           {
-            "name": "description",
+            "name": "summary",
             "in": "query",
-            "description": "description of the patent",
+            "description": "abstracrt for the patent",
+            "required": true,
+            "type": "string"
+          },          
+          {
+            "name": "abstract",
+            "in": "query",
+            "description": "abstracrt for the patent",
             "required": true,
             "type": "string"
           },
@@ -71,6 +78,20 @@
             "required": true,
             "type": "string"
           },
+          {
+            "name": "owner",
+            "in": "query",
+            "description": "url for the patent",
+            "required": true,
+            "type": "string"
+          },   
+          {
+            "name": "number",
+            "in": "query",
+            "description": "number for the patent",
+            "required": true,
+            "type": "string"
+          },                  
           {
             "name": "tags",
             "in": "query",
@@ -133,13 +154,6 @@
         "operationId": "updatePatent",
         "parameters": [
           {
-            "name": "slug",
-            "in": "path",
-            "description": "unique slug for the patent",
-            "required": true,
-            "type": "string"
-          },
-          {
             "name": "name",
             "in": "query",
             "description": "name of the patent",
@@ -147,9 +161,16 @@
             "type": "string"
           },
           {
-            "name": "description",
+            "name": "summary",
             "in": "query",
-            "description": "description of the patent",
+            "description": "abstracrt for the patent",
+            "required": true,
+            "type": "string"
+          },          
+          {
+            "name": "abstract",
+            "in": "query",
+            "description": "abstracrt for the patent",
             "required": true,
             "type": "string"
           },
@@ -161,12 +182,33 @@
             "type": "string"
           },
           {
+            "name": "owner",
+            "in": "query",
+            "description": "url for the patent",
+            "required": true,
+            "type": "string"
+          },   
+          {
+            "name": "number",
+            "in": "query",
+            "description": "number for the patent",
+            "required": true,
+            "type": "string"
+          },                   
+          {
             "name": "tags",
             "in": "query",
             "description": "tags for the patent",
             "required": true,
             "type": "string"
-          }
+          },
+          {
+            "name": "slug",
+            "in": "path",
+            "description": "unique slug for the patent",
+            "required": true,
+            "type": "string"
+          },          
         ],
         "responses": {
           "200": {
@@ -223,14 +265,29 @@
           "type": "string",
           "format": "label"
         },
-        "description": {
-          "description": "description of the patent",
-          "type": "string"
+        "summary": {
+          "description": "summary of the patent",
+          "type": "string",
+          "format": "summary"
         },
+        "abstract": {
+          "description": "abstract of the patent",
+          "type": "string",
+          "format": "text"
+        },        
         "url": {
           "description": "url for the patent",
-          "type": "string"
+          "type": "string",
+          "format": "url"
         },
+        "owner": {
+          "description": "owner for the patent",
+          "type": "string"
+        },    
+        "number": {
+          "description": "number for the patent",
+          "type": "string"
+        },             
         "tags": {
           "description": "tags for the patent",
           "type": "string"
@@ -241,7 +298,7 @@
           "format": "id"
         }
       }
-    },
+    },    
     "errorModel": {
       "required": [
         "code",
