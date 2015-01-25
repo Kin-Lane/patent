@@ -306,9 +306,17 @@ function getResourceListing($name,$summary,$abstract,$url,$owner,$number,$tags,$
 	html = html + '<span style="font-size:20px;">';
 	html = html + '<strong>' + $resource_name + '</strong>';
 	html = html + '</span>';
+	
+	html = html + '<br /><span style="font-size:20px;">';
+	html = html + '<strong>' + $resource_number + '</strong>';
+	html = html + '</span>';	
 
 	html = html + '<br /><span style="font-size:20px;">';
-	html = html + '<strong>' + $resource_summary + '</strong>';
+	html = html + '<strong>' + $resource_abstract + '</strong>';
+	html = html + '</span>';
+
+	html = html + '<br /><span style="font-size:20px;">';
+	html = html + '<strong>' + $resource_url + '</strong>';
 	html = html + '</span>';
 
 	html = html + '</td>';
@@ -358,7 +366,7 @@ function loadResourceEditor()
 				$html = getResourceListing($resource_name,$resource_summary,$resource_abstract,$resource_url,$resource_owner,$resource_number,$resource_tags,$resource_slug,$resourcecount);
 				$('#jsonResourceEditorTable').append($html); 
 
-				$html = getEditResource($resource_name,$resource_description,$resource_url,$resource_tags,$resource_slug,$resourcecount)
+				$html = getEditResource($resource_name,$resource_summary,$resource_abstract,$resource_url,$resource_owner,$resource_number,$resource_tags,$resource_slug,$resourcecount);
 				$('#jsonResourceEditorTable').append($html);
 
 				$textEditors = $textEditors + ",edit-resource-post-" + $resourcecount;
