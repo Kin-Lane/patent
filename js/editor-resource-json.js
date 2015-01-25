@@ -307,32 +307,8 @@ function getResourceListing($name,$summary,$abstract,$url,$owner,$number,$tags,$
 	html = html + '<strong>' + $resource_name + '</strong>';
 	html = html + '</span>';
 
-	html = html + '<span style="font-size:20px;">';
+	html = html + '<br /><span style="font-size:20px;">';
 	html = html + '<strong>' + $resource_summary + '</strong>';
-	html = html + '</span>';
-
-	html = html + '<span style="font-size:20px;">';
-	html = html + '<strong>' + $resource_abstract + '</strong>';
-	html = html + '</span>';
-
-	html = html + '<span style="font-size:20px;">';
-	html = html + '<strong>' + $resource_url + '</strong>';
-	html = html + '</span>';
-
-	html = html + '<span style="font-size:20px;">';
-	html = html + '<strong>' + $resource_owner + '</strong>';
-	html = html + '</span>';
-
-	html = html + '<span style="font-size:20px;">';
-	html = html + '<strong>' + $resource_number + '</strong>';
-	html = html + '</span>';
-
-	html = html + '<span style="font-size:20px;">';
-	html = html + '<strong>' + $resource_tags + '</strong>';
-	html = html + '</span>';
-
-	html = html + '<span style="font-size:20px;">';
-	html = html + '<strong>' + $resource_slug + '</strong>';
 	html = html + '</span>';
 
 	html = html + '</td>';
