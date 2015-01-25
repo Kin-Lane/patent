@@ -345,7 +345,7 @@ function loadResourceEditor()
 	$query = $query + '&appkey=' + $APIConfig['3Scale']['appkey'];
 
 	$apiurl = $hosturl + $baseurl + $resource + $query;
-
+console.log($apiurl);
 	$.ajax({
 		url: $apiurl,
 		type: 'GET',
