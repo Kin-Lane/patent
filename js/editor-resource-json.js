@@ -1,3 +1,4 @@
+
 $WorkingResponse = "";
 $resourcecount = 0;
 $textEditors = "";
