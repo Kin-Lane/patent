@@ -45,10 +45,10 @@ function addResource(tinyInstance)
 
 	$hosturl = 'http://patent.api.kinlane.com';
 	$baseurl = '/';
-	$resource = 'patent';
-
+	$resource = 'patent/';
+	
 	$apiurl = $hosturl + $baseurl + $resource;
-
+console.log($apiurl);
 		$.ajax({
 		url: $apiurl,
 		type: 'POST',
