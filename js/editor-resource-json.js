@@ -75,6 +75,14 @@ console.log($apiurl);
 				$resourcecount++;
 
 				});
+				
+			document.getElementById("add-resource-name").value = "";
+			document.getElementById("add-resource-summary").value = "";
+			document.getElementById("add-resource-abstract").value = "";
+			document.getElementById("add-resource-url").value = "";
+			document.getElementById("add-resource-owner").value = "";
+			document.getElementById("add-resource-number").value = "";
+			document.getElementById("add-resource-tags").value = "";	
 
 			}
 		});
