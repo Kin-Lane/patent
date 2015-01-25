@@ -321,11 +321,7 @@ function getResourceListing($name,$summary,$abstract,$url,$owner,$number,$tags,$
 	html = html + '</span>';	
 
 	html = html + '<br /><span style="font-size:16px;">';
-	html = html + '' + $resource_abstract + '';
-	html = html + '</span>';
-
-	html = html + '<br /><span style="font-size:16px;">';
-	html = html + '<a href="' + $resource_url + '">view url</a>';
+	html = html + '' + $resource_abstract + '...<a href="' + $resource_url + '">view url</a>';
 	html = html + '</span>';
 
 	html = html + '</td>';
