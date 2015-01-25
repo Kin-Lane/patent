@@ -33,7 +33,8 @@ function addResource(tinyInstance)
 
 	$postData['appid'] = $APIConfig['3Scale']['appid'];
 	$postData['appkey'] = $APIConfig['3Scale']['appkey'];
-
+console.log($APIConfig['3Scale']['appid']);
+console.log($APIConfig['3Scale']['appkey']);
 	$postData['name'] = $resource_name;
 	$postData['summary'] = $resource_summary;
 	$postData['abstract'] = $resource_abstract;
@@ -44,7 +45,7 @@ function addResource(tinyInstance)
 
 	$hosturl = 'http://patent.api.kinlane.com';
 	$baseurl = '/';
-	$resource = 'patent';
+	$resource = 'patent/';
 
 	$apiurl = $hosturl + $baseurl + $resource;
 
