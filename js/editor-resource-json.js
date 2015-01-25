@@ -237,7 +237,7 @@ function deleteResource($resourcecount)
 
 function getEditResource($resource_name,$resource_summary,$resource_abstract,$resource_url,$resource_owner,$resource_number,$resource_tags,$resource_slug,$resourcecount)
 	{
-console.log("in");
+
 	html = '<tr id="edit-resource-post-' + $resourcecount + '" style="display: none;"><td align="center" style="font-size: 12px; background-color:#CCC; padding:5px;">';
 
 	html = html + '<span style="font-size: 18px;"><strong>Edit Resource</span></strong>';
