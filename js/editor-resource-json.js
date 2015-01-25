@@ -303,20 +303,20 @@ function getResourceListing($name,$summary,$abstract,$url,$owner,$number,$tags,$
 	html = html + '<a href="#" onclick="ConfirmDelete(' + $resourcecount + '); return false;" id="delete-resource-post-' + $resourcecount + '-icon" title="Delete Resource Post"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-delete-circle.png" width="35" align="right"  /></a>';
 	html = html + '<a href="#" onclick="ResourceShowme(this); return false;" id="edit-resource-post-' + $resourcecount + '-icon" title="Edit Resource Post"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
 
-	html = html + '<span style="font-size:20px;">';
+	html = html + '<span style="font-size:18px;">';
 	html = html + '<strong>' + $resource_name + '</strong>';
 	html = html + '</span>';
 	
-	html = html + '<br /><span style="font-size:20px;">';
-	html = html + '<strong>' + $resource_number + '</strong>';
+	html = html + '<br /><span style="font-size:16px;">';
+	html = html + '' + $resource_number + '';
 	html = html + '</span>';	
 
-	html = html + '<br /><span style="font-size:20px;">';
-	html = html + '<strong>' + $resource_abstract + '</strong>';
+	html = html + '<br /><span style="font-size:16px;">';
+	html = html + '' + $resource_abstract + '';
 	html = html + '</span>';
 
-	html = html + '<br /><span style="font-size:20px;">';
-	html = html + '<strong>' + $resource_url + '</strong>';
+	html = html + '<br /><span style="font-size:16px;">';
+	html = html + '' + $resource_url + '';
 	html = html + '</span>';
 
 	html = html + '</td>';
