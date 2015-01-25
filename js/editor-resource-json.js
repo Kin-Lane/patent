@@ -303,7 +303,7 @@ function getEditResource($resource_name,$resource_summary,$resource_abstract,$re
 
 	}
 
-function getResourceListing($name,$summary,$abstract,$url,$owner,$number,$tags,$slug,$resourcecount)
+function getResourceListing($resource_name,$resource_summary,$resource_abstract,$resource_url,$resource_owner,$resource_number,$resource_tags,$resource_slug,$resourcecount)
 	{
 
 	html = '<tr id="resource-post-' + $resourcecount + '">';
@@ -318,7 +318,11 @@ function getResourceListing($name,$summary,$abstract,$url,$owner,$number,$tags,$
 	
 	html = html + '<br /><span style="font-size:16px;">';
 	html = html + '<strong>Patent #:</strong> ' + $resource_number + '';
-	html = html + '</span>';	
+	html = html + '</span>';
+	
+			html = html + '<br /><span style="font-size:16px;">';
+	html = html + '<strong>Owner:</strong> ' + $resource_owner + '';
+	html = html + '</span>';
 
 	html = html + '<br /><span style="font-size:16px;">';
 	html = html + '' + $resource_abstract + '...<a href="' + $resource_url + '">view url</a>';
