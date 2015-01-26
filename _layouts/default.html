@@ -6,8 +6,14 @@
   <body>
 
     <header class="masthead">
+    	
+      <script type="text/javascript">
+      	// Do we have a token?
+    	$oAuth_Token = getUrlVar('oAuth_Token');
+      </script>	
+    	
       <div class="masthead-inner" align="center">  	      	
-		<h2>{{ site.title }}</h2>      		
+		<h2>{" {{ site.title }} "}</h2>      		
     	<a href="http://bit.ly/1cHBhd5" target="_blank">
     		<img src="https://s3.amazonaws.com/kinlane-productions/api-evangelist/3scale/Winning-in-the-API-Economy-eBook-3scale.png" width="50%" style="border: 1px solid #FFF; margin-bottom: 25px;" />
     	</a>                   	      	
@@ -17,37 +23,22 @@
               <a href="index.html" id="home-nav">Home</a>
             </li>
             <li>
-              <a href="editor-resource.html" id="resource-editor-nav">{{ site.resource }}</a>
+              <a href="editor-resource.html" id="resource-editor-nav" style="display: none;">{{ site.resource }}</a>
             </li>    
             <li>
               <a href="editor-questions.html" id="questions-editor-nav">Questions</a>
             </li>
             <li>
-              <a href="editor-config.html" id="config-editor-nav">Config</a>
+              <a href="editor-config.html" id="config-editor-nav" style="display: none;">Config</a>
             </li>                                
             <li>
-              <a href="editor-apis-json.html" id="apis-json-editor-nav">APIs.json</a>
+              <a href="editor-apis-json.html" id="apis-json-editor-nav" style="display: none;">APIs.json</a>
             </li>   
             <li style="padding-top: 15px;">
               <a href="http://apievangelist.com"><< Return to API Evangelist</a>
             </li>                                                                       
           </ul>
-        </div>   
-	        
-	    <script type="text/javascript">
-	    
-	    	$oAuth_Token = getUrlVar('oAuth_Token');
-	    	
-	    	if($oAuth_Token!='')
-	    		{
-				document.getElementById("home-nav").href = document.getElementById("home-nav").href + '?oAuth_Token=' + $oAuth_Token;
-				document.getElementById("resource-editor-nav").href = document.getElementById("resource-editor-nav").href + '?oAuth_Token=' + $oAuth_Token;
-				document.getElementById("apis-json-editor-nav").href = document.getElementById("apis-json-editor-nav").href + '?oAuth_Token=' + $oAuth_Token;
-				document.getElementById("questions-editor-nav").href = document.getElementById("questions-editor-nav").href + '?oAuth_Token=' + $oAuth_Token;		
-				document.getElementById("config-editor-nav").href = document.getElementById("config-editor-nav").href + '?oAuth_Token=' + $oAuth_Token;						    					    	
-	    		}
-	    		
-	    </script>           
+        </div>   	                
               
         <script id="parterListingTemplate" type="text/template"> 
             {% raw  %}  
@@ -115,50 +106,6 @@
       
     </div>
 	
-	<script type="text/javascript">
-	
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-1119465-51']);
-	  _gaq.push(['_setDomainName', 'apievangelist.com']);
-	  _gaq.push(['_trackPageview']);
-	
-	  (function() {
-	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
-	  
-	  function checkLinkRot()
-	    {
-	    var linkArray = [];
-	    var links = document.getElementsByTagName("a");
-	    for(var i=0; i<links.length; i++) {
-	        linkArray.push(links[i].href);
-	    }
-	    url = "http://linkrot.api.laneworks.net/v1/links/";
-	    var myJsonString = JSON.stringify(linkArray);                
-	    $.ajax({
-	        type: "POST",
-	        url: url,
-	        data: myJsonString,
-	        success: function (data) {            
-	             $.each(data, function($Key,$Value) {                 
-	                $URL = $Value['URL'];
-	                $returnURL = $Value['returnURL'];  
-	                var links = document.getElementsByTagName("a");
-	                for(var i=0; i<links.length; i++) {
-	                    if(links[i].href==$URL)
-	                        {
-	                        document.getElementsByTagName("a")[i].href=$returnURL;    
-	                        }
-	                     }                
-	             });                 
-	        }
-	    });                
-	    }   
-	
-	</script>
-	
 	<!-- Google Code for API Evangelist visitors -->
 	<script type="text/javascript">
 	/* <![CDATA[ */
@@ -193,7 +140,7 @@
 			}
 		if(document.getElementById("jsonNavigator"))
 			{
-			loadAPIsJSONNavigator();
+			loadAPIsJSONNavigator('apis.json');
 			}			
 		if(document.getElementById("swaggerEditor"))
 			{			
@@ -206,8 +153,29 @@
 		if(document.getElementById("jsonConfigEditor"))
 			{			
 			loadConfigEditor();			
-			}			
+			}						
+    	
+    	if($oAuth_Token!='')
+    		{			
+    			
+			document.getElementById("home-nav").href = document.getElementById("home-nav").href + '?oAuth_Token=' + $oAuth_Token;
+			document.getElementById("resource-editor-nav").href = document.getElementById("resource-editor-nav").href + '?oAuth_Token=' + $oAuth_Token;
+			document.getElementById("apis-json-editor-nav").href = document.getElementById("apis-json-editor-nav").href + '?oAuth_Token=' + $oAuth_Token;
+			document.getElementById("questions-editor-nav").href = document.getElementById("questions-editor-nav").href + '?oAuth_Token=' + $oAuth_Token;		
+			document.getElementById("config-editor-nav").href = document.getElementById("config-editor-nav").href + '?oAuth_Token=' + $oAuth_Token;
+			
+			document.getElementById("resource-editor-nav").style.display = '';
+			document.getElementById("config-editor-nav").style.display = '';
+			document.getElementById("apis-json-editor-nav").style.display = '';
+									    					    	
+    		}
+    	else
+    		{
+    			
+    		}
+	    		
+	</script>  	
+	
+</body>
 
-	</script>
-  </body>
 </html>
