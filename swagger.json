@@ -12,10 +12,10 @@
     "http"
   ],
   "produces": [
-    "patentlication/json"
+    "application/json"
   ],
   "paths": {
-    "patent/": {
+    "/patent/": {
       "get": {
         "summary": "retrieves all patents",
         "description": "pulls all patents, with filter by keyword",
@@ -117,7 +117,7 @@
         ]
       }
     },
-    "patent/{slug}": {
+    "/patent/{slug}/": {
       "get": {
         "summary": "Retrieve a patent using its slug",
         "description": "Returns the patent detail",
@@ -127,7 +127,7 @@
             "name": "slug",
             "in": "path",
             "description": "slug for the patent, notice this is in the path, not a query variable",
-            "required": "true",
+            "required": true,
             "type": "integer",
             "format": "id"
           }
@@ -296,22 +296,6 @@
           "description": "slug for the patent",
           "type": "string",
           "format": "id"
-        }
-      }
-    },
-    "errorModel": {
-      "required": [
-        "code",
-        "message"
-      ],
-      "properties": {
-        "code": {
-          "type": "integer",
-          "format": "int32",
-          "description": "This is the error code returned."
-        },
-        "message": {
-          "type": "string"
         }
       }
     }
