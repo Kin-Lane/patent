@@ -41,8 +41,7 @@
           }
         },
         "tags": [
-          "patent",
-          "patentging"
+          "Patents"
         ]
       },
       "post": {
@@ -112,8 +111,7 @@
           }
         },
         "tags": [
-          "patent",
-          "patentging"
+          "Patents"
         ]
       }
     },
@@ -144,8 +142,7 @@
           }
         },
         "tags": [
-          "patent",
-          "patentging"
+          "Patents"
         ]
       },
       "put": {
@@ -222,8 +219,7 @@
           }
         },
         "tags": [
-          "patent",
-          "patentging"
+          "Patents"
         ]
       },
       "delete": {
@@ -251,8 +247,7 @@
           }
         },
         "tags": [
-          "patent",
-          "patentging"
+          "Patents"
         ]
       }
     }
