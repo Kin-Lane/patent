@@ -250,6 +250,28 @@
           "Patents"
         ]
       }
+    },
+    "/patent/filters/by-owner/": {
+      "get": {
+        "summary": "get patents by owner",
+        "description": "get patents by owner",
+        "operationId": "getPatentsByOwner",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "patent response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/patent"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Patents"
+        ]
+      }
     }
   },
   "definitions": {
