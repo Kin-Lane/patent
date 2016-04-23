@@ -1,4 +1,4 @@
-[{
+{
 	"name": "Kin Lane Patent API",
 	"description": "I think patents are going to be one of the most damaging effects on the world of APIs will be patents. An out of date, patent process that is being applied to the digital world of APIs will slow the growth of entire industries, and the wider API sector. I work to track on API related patents, using the USPTO data dumps, in conjunction with this custom API. I'll keep updating, and addin grelevant information as I have time.",
 	"image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-certificate.png",
@@ -6,7 +6,7 @@
 	"tags": ["Kin Lane Patent API"],
 	"created": "2016-04-04",
 	"modified": "2016-04-04",
-	"url": "https://kin-lane.github.io/patent/"
+	"url": "https://kin-lane.github.io/patent/",
 	"specificationVersion": "0.14",
 	"apis": [{
 		"name": "Kin Lane Patent API",
@@ -117,4 +117,4 @@
 		"x-twitter": "apievangelist",
 		"email": "info@apievangelist.com"
 	}]
-}]
+}
